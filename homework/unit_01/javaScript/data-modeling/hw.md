@@ -60,13 +60,49 @@ track of whether tasks have been completed, it will also keep track of
 how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
-> Answer here
+<!-- Answer #1 -->
+//Task and Project are the objects
+  //Both task and project will have properties
+    //A task will need a name, and in order to track how long it took, it will need a start time and completion time
+    //A project will need a name, a description, and a list of tasks within that project
+
+var task = {
+  name: "Sweep floor";
+  startTime: "1pm";
+  completeTime: "4pm";
+  }
+var projects = {
+  name: "Chores";
+  description: "Clean the house"
+  tasks: ["Sweep the floor", "Wipe the counters", "Vacuum the carpet", "Make the bed"];
+  }
 
 ### 2. Photo Sharing App
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
-> Answer here
+<!-- Answer 2 -->
+//The app needs to store photos and share them with others, while being able to group the photos together in albums
+  //The photos object will need to store the photo's identifier number, description, date taken, and name of the user
+  //The user object will need the name of the photographer, age, gender, and location
+  //The album object will need to store the photos, and who it is shared with
+
+var user = {
+  name: "Dan";
+  age: 23;
+  gender: "Male";
+  location: "Atlanta, GA";
+}
+var photo = {
+  identifier: 28194;
+  description: "Vacation in Texas";
+  date: "05/04/16";
+  photographer: user;
+}
+var album = {
+  photographs: [photo, photo, photo];
+  sharedUsers: [user, user, user]
+}
 
 ### 3. Home Automation Manager
 
@@ -75,7 +111,19 @@ track of the time and temperature of the house that it monitors, and use that
 information to turn on and off different lights and adjust the thermostat up
 and down.
 
-> Answer here
+<!-- Answer 3 -->
+//This app monitors the time and manages the house's temperature, and uses that information to manage the lights and adjust the thermostat of the house.
+
+var light = {
+  brightness: "dim",
+  location: "bedroom",
+  name: "ceiling light"
+};
+
+var homeSystem = {
+  temp: "73 degrees",
+  setOfLights: ["bedroom", "kitchen", "dining room", "bathroom"]
+};
 
 ### 4. Sneaker Store
 
@@ -83,7 +131,22 @@ This app will allow customers to browse a list of products (sneakers, in this
 case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
-> Answer here
+<!-- Answer 4 -->
+//Shoe store app provides a list of shoes for sale
+  //User will be able to add products (shoes) to a cart
+  //Purchased cart will be saved as a past order
+
+var shoe = {
+  name: "Air Jordans",
+  description: "These are some pretty sweet Jordans.",
+  price: "$100"
+};
+
+var cart = {
+  product: shoe,
+  quantity: 1,
+  orderStatus: "completed"
+};
 
 ## Representing Abstractions in Code
 
@@ -139,7 +202,10 @@ var exampleLine = {
 
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
-> Answer here
+<!-- Answer 5 -->
+An advantage of this representation is that each station is referred to by its actual name, instead of nameless numbers in an array. This helps the user identify their stop by name instead of a number.
+
+On the other hand, it can also be seen as a disadvantage because it is techinically unable to tell the user *how many* stops the user must go through until they reach their destination.
 
 ### 6. Doctor Appointment App
 
@@ -242,7 +308,11 @@ Under what circumstances might one representation be a better choice than the
 other? Are there any circumstances in which the other representation might be
 the better choice?
 
-> Answer here
+<!-- Answer 6 -->
+Option #1 would be better for the doctor's reference, because their appointments are nested within that doctor's information, keeping them all organized in one place for that specific doctor. However, for any other user it looks very cluttered and complicated. 
+
+Option #2 would be the best all around, because it organizes the information by appointment >> doctor, patient. Instead of the information heirarchy starting with the doctor, it starts with the appointment, providing equal preference for both the doctor and the patient.
+
 
 ## Tying It Together
 
@@ -253,13 +323,43 @@ You've been tasked with building an in-browser tic-tac-toe game.
 a.  What are some possible entities that your application might use to model its
     data? Please pick at least two, with at least two properties apiece.
 
-  > Answer here
+<!-- Answer 7a -->
+  A Player has:
+     a name
+     an assigned game piece
+ 
+  A Game has:
+     an X player
+     an O player
+     a set of moves, made with X and O pieces
+ 
+  A Move has:
+     a designated player's turn
+     a position on the board, i.e. row x column
 
 b.  How might those entities be represented in JavaScript code?
 
-  > Answer here
+<!-- Answer 7b -->
+  var game = {
+    var playerOne = {
+      name: "Jack",
+      gamePiece: "X"
+    }
+    var playerTwo = {
+      name: "Jill",
+      gamePiece: "O"
+    }
+    var moves = {
+      var moveOne = {
+        turn: playerOne,
+        position: 2 x 2,
+      }
+    }
+  }
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?
 
-  > Answer here
+<!-- Answer 7c -->
+The entities I have chosen create clear guidelines for creating the object model. 
+The representations I have chosen create a clear, logical structure for the game.
