@@ -1,1 +1,30 @@
-/* Add your CSS code here. */
+body {
+	background-color: #51566b;
+	font-family: "Helvetica", sans-serif;
+	color: white;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+a {
+	color: white;
+	text-decoration: none;
+	padding: 3px;
+}
+#resume {
+	color: #4caf50;
+	text-decoration: underline;
+}
+
+img {
+	padding: 4px;
+	border: 1.5px grey solid;
+	float: right;
+}
+
+h1 {
+	text-align: center;
+}

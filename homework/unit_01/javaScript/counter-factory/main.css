@@ -6,11 +6,18 @@ See LICENSE for details.
 
 body {
   padding: 20px;
+  background-color: black;
+  font-family: "Helvetica", sans-serif;
+  color: white;
+}
+
+h1, h2 {
+  text-align: center;
 }
 
 .component {
   padding: 30px;
-  background-color: pink;
+  background-color: blue;
   margin: 10px;
 }
 
@@ -23,7 +30,7 @@ main {
   border: black solid 1px;
   margin: 1px;
   text-align: center;
-  background-color: violet;
+  background-color: #82a1ee;
   width: 150px;
   float: left;
 }
