@@ -11,7 +11,13 @@ app.get('/', function (req, res) {
 	res.send(greeting);
 });
 
+app.get('/topping/:type', function (req, res, next) {
+	res.send(`${req.params.type} pizza, good choice!`);
+});
 
+app.get('/order/:quantity/:size', function (req, res, next) {
+	res.send(`Your order for ${req.params.quantity} ${req.params.size} pizzas will be ready in 1 minute!`);
+});
 
 app.listen(port, () => {
 	console.log('Listening on port ' + port);
