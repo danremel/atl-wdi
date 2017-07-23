@@ -1,24 +1,28 @@
 // requirements
 const express = require('express');
 const router = express.Router();
-const pirates = require('../models/pirates.js');
+const data = require('../models/pirates.js');
 
 
-// all routes for /pirate
+// Index Pirates
 router.get('/', (req, res) => {
-	var greeting = "Testing";
 	res.render('pirates/index', {
-		message: greeting,
+		pirates: data.listOfPirates,
 	});
 });
 
-router.get('/new', () => {
-	
-})
+// New Pirates
+router.get('/new', (req, res) => {
+	res.render('pirates/new');
+});
 
+// Show Pirates
 router.get('/:id', (req, res) => {
-	res.send('pirates/show.hbs', {
-
+		const id = req.params.id;
+		const pirates = data.listOfPirates[id];
+	res.render('pirates/show', {
+  		pirates: pirates,
+  		id: id,
 	});
 });
 

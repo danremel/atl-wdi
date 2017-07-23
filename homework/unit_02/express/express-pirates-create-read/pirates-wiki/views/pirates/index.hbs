@@ -1,1 +1,11 @@
-<p>{{ message }}</p>
+<h1>Here is a list of all {{ pirates.length }} pirates!</h1>
+
+<ul>{{#each pirates}}
+	<li>Name: <a href="/pirates/{{@index}}">{{name}}</a></li>
+	<li>Birthplace: {{birthplace}}</li>
+	<li>Year of death: {{death_year}}</li>
+	<li>Base: {{base}}</li>
+	<li>Nickname: {{nickname}}</li>
+	<br />
+	{{/each}}
+</ul>
