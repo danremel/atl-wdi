@@ -7,6 +7,9 @@
 	<li>Year of death: {{death_year}}</li>
 	<li>Base: {{base}}</li>
 	<li>Nickname: {{nickname}}</li>
+	<form method="POST" action="pirates/{{@index}}?_method=DELETE">
+		<button>Walk the plank!</button>
+	</form>
 	<br />
 	{{/each}}
 </ul>

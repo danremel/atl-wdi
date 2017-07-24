@@ -46,7 +46,7 @@ router.put('/:id', (req, res) => {
     pirates.base = req.body.base,
     pirates.nickname = req.body.nickname
     res.method = "GET";
-    res.redirect(`/pirates/${id}`); 
+    res.redirect('/pirates'); 
 });
 
 // Save Pirates
@@ -63,5 +63,11 @@ router.post('/', (req, res) => {
 	res.redirect('/pirates');
 });
 
-// exports
+// Delete Pirates
+router.delete('/:id', (req, res) => {
+	data.listOfPirates.splice(req.params.id, 1);
+	res.redirect('/pirates');
+});
+
+// Exports
 module.exports = router;
