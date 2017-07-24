@@ -26,6 +26,19 @@ router.get('/:id', (req, res) => {
 	});
 });
 
+// Save Pirates
+router.post('/', (req, res) => {
+	console.log(req.body);
+	const newPirate = {
+		name: req.body.name,
+	 	birthplace: req.body.birthplace,
+	 	death_year: req.body.death_year,
+    	base: req.body.base,
+    	nickname: req.body.nickname
+	};
+	data.listOfPirates.push(newPirate);
+	res.redirect('/pirates');
+});
 
 // exports
 module.exports = router;

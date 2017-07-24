@@ -2,7 +2,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const logger = require('morgan');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 // App Settings
 const app = express();
@@ -14,9 +14,9 @@ const PirateController = require('./controllers/pirates.js');
 // Log from Morgan
 app.use(logger('dev'));
 
-// app.use(bodyParser.urlencoded({
-// 	extended: true
-// }));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
 // views
 app.set('view engine', 'hbs');

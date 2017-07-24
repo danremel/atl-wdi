@@ -1,5 +1,6 @@
 <h1>Here is a list of all {{ pirates.length }} pirates!</h1>
 
+<a href="pirates/new">Create a pirate!</a>
 <ul>{{#each pirates}}
 	<li>Name: <a href="/pirates/{{@index}}">{{name}}</a></li>
 	<li>Birthplace: {{birthplace}}</li>
