@@ -3,6 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 // App Settings
 const app = express();
@@ -13,10 +14,12 @@ const PirateController = require('./controllers/pirates.js');
 
 // Log from Morgan
 app.use(logger('dev'));
-
+// Body Parser
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+// Method Override
+app.use(methodOverride('_method'));
 
 // views
 app.set('view engine', 'hbs');

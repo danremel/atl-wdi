@@ -18,12 +18,35 @@ router.get('/new', (req, res) => {
 
 // Show Pirates
 router.get('/:id', (req, res) => {
-		const id = req.params.id;
-		const pirates = data.listOfPirates[id];
+	const id = req.params.id;
+	const pirates = data.listOfPirates[id];
 	res.render('pirates/show', {
-  		pirates: pirates,
   		id: id,
+  		pirates: pirates,
 	});
+});
+
+// Edit Pirates
+router.get('/:id/edit', (req, res) => {
+	const id = req.params.id;
+	const pirates = data.listOfPirates[id];
+	res.render('pirates/edit', {
+		id: id,
+		pirates: pirates,
+	});
+});
+
+// Update Pirates
+router.put('/:id', (req, res) => {
+	const id = req.params.id;
+	const pirates = data.listOfPirates[id];
+	pirates.name = req.body.name,
+	pirates.birthplace = req.body.birthplace,
+	pirates.death_year = req.body.death_year,
+    pirates.base = req.body.base,
+    pirates.nickname = req.body.nickname
+    res.method = "GET";
+    res.redirect(`/pirates/${id}`); 
 });
 
 // Save Pirates
