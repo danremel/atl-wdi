@@ -22,11 +22,32 @@ const Tamagotchi = function(name, creatureType) {
 		console.log("Yawnnnnn! I'm sleepy.");
 		console.log(this.name + "'s restedness level is now: " + this.restedness);
 	};
-}
+	this.start = function () {
+		console.log("Starting " + this.name);
+		var self = this;
+		this.hungerTimer = setInterval(function() {
+			self.cry();
+		}, 6000);
+		this.yawnTimer = setInterval(function() {
+			self.yawn();
+		}, 10000);
+		this.sickTimer = setInterval(function() {
+			self.puke();
+		}, 20000);
+	};
+	this.stop = function() {
+		console.log("Stopping " + this.name);
+		clearInterval(this.hungerTimer);
+		clearInterval(this.yawnTimer);
+		clearInterval(this.sickTimer);
+	};
+};
 
 //create new Tamagotchis
 var gizmo = new Tamagotchi("Gizmo", "Mametchi");
-
+var bobby = new Tamagotchi("Bobby", "Kuchipatchi");
+var lionel = new Tamagotchi("Lionel", "Gozarutchi");
 //test out your Tamagotchies below via console.logs
-console.log(gizmo.yawn());
-console.log(gizmo.puke());
+console.log(gizmo.start());
+console.log(bobby);
+console.log(lionel);
