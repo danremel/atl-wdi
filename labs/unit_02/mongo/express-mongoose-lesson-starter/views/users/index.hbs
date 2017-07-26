@@ -1,0 +1,8 @@
+<h1>Users</h1>
+
+<ul> {{#each users}}
+	<li>Name: {{this.first_name}}</li>
+	<li>Email: {{this.email}}</li>
+	<a href="/users/{{this._id}}/delete">Delete {{this.first_name}}</a>	
+{{/each}}
+</ul>

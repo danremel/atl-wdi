@@ -16,15 +16,17 @@
 // 	console.log(successMessage);
 // });
 
-// // Reject a promise
+// Reject a promise
 // var promise = new Promise(function(fulfill, reject) {
 // 	setTimeout(function() {
 // 		reject(new Error("REJECTED!"));
 // }, 300);
 // });
+
 // function onReject (error) {
 // 	console.log(error.message);
 // };
+
 // promise.then(null,onReject);
 
 // // To reject or not to reject
