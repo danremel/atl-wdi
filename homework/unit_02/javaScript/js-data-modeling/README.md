@@ -30,7 +30,21 @@ entities/abstractions (e.g. Senior Paws app, above) that the app might use, and 
 This app provides easy access to all your e-mail service providers in one app. The app will let you select one of your email addresses and view your e-mails for that address.
 
 ```
-Write your answer here or in a separate js file.
+var emailApp = {
+	id: Number,
+	sender: String,
+	receiver: String,
+	content: String,
+	timeStamp: Date
+};
+
+var exampleEmail = {
+	id: 12345681938,
+	sender: "Joe",
+	receiver: "Moe",
+	content: "Hey Moe! It's Joe."
+	timeStamp: 4/02/2012 8:28PM
+};
 ```
 
 ### 2. Radio on the Internet app
@@ -39,7 +53,18 @@ This app hosts a ton of radio stations, each featuring their own playlists of so
 
 
 ```
-Write your answer here or in a separate js file.
+var radioOnTheInternet = {
+	station: [ ],
+	genre: [ ],
+	Playlists: [ ]
+};
+
+var exampleRadio ={
+	station: [{
+		name: "Rock 103.5",
+		genre: "Rock",
+		Playlists: ["Classic Rock", "Hair Metal", "British Invasion", "Alt Rock Block"]
+};
 ```
 
 ### 3. Rock Concert App
@@ -47,19 +72,73 @@ Write your answer here or in a separate js file.
 This app will be a tool for managing all of your favorite bands' concerts; it will keep track of their tour dates, ticket purchasing, and next recommended show.
 
 ```
-Write your answer here or in a separate js file.
+var rockConcertApp = {
+	headliner: String,
+	openers: [ ],
+	town: String,
+	venue: String,
+	ticketCost: Number,
+	dateAndTime: Date
+};
+
+var exampleRockConcert = {
+	headliner: "Kick The Robot",
+	openers: ["The Howling Tongues", "Sunghosts"],
+	town: "Atlanta",
+	venue: "The Tabernacle",
+	ticketCost: 15,
+	dateAndTime: 5-14-2016 7:00PM
+};
 ```
 
 ### 4. Coffee To-Go App
 
 This app will allow customers to browse a list of coffeeshops nearby, order drinks off of their menu, add those drinks to a shopping cart, and save that cart as a past order once the purchase is complete.
 
+```
+var coffeeToGoApp = {
+	coffeeShop: [ ],
+	menu: [ ],
+	currentOrder: [ ],
+	orderHistory: [ ]	
+};
+
+var exampeCoffeeToGo = {
+	coffeeShop: [{
+		menu: ["Cafe Au Leit", "Frappucino", "Espresso"],
+		currentOrder: ["Cafe Au Leit"],
+		orderHistory: ["Cafe Au Leit"]
+	}],
+};
+```
+
 ### 5. Team Tracker App
 
 This app shows you all the latest stats from your favorite sports teams. You can view individual player stats and full team stats.
 
 ```
-Write your answer here or in a separate js file.
+var teamTrackerApp = {
+	sport: [ ],
+	team: String,
+	teamStats: [ ],
+	playerStats: [ ]
+};
+
+var exampleTeamTracker = {
+	sport: hockey,
+	team: "Chicago Blackhawks",
+	teamStats: [
+		goalsFor: 20,
+		goalsAgainst: 4,
+		avgShotsOnGoal: 50
+	],
+	playerStats: [
+		name: Patrick Kane,
+		number: 88,
+		avgGoalsPerGame: 3,
+		avgMinutesOnIce: 30
+	]
+};
 ```
 
 
@@ -68,7 +147,8 @@ Write your answer here or in a separate js file.
 Q. When you were creating relationships between the models, what were some thoughts or questions you had to help guide a connection between them?
 
 ```
-Write your answer here or in a separate js file.
+I asked myself, "What does this need? What pieces does this require to have a functioning concept?"
+When creating example models, I realized that there were a lot more pieces to each model than I first realized.
 ```
 
 ### Reading and Videos for Tomorrow
