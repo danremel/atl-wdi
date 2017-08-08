@@ -1,7 +1,7 @@
-# Create and Read some Pirates
+# Create and Read Some Pirates
 
 ## Setup
-1. Make sure that you are on the `master` branch of your `wdi-remote-...` repo.
+1. Make sure that you are on the `master` branch of your class repo.
 Then run `git pull upstream master` to pull the latest materials from the
 instructors' repository. You shouldn't hit a merge conflict here, but if you do, flag down an instructor right away.
 
@@ -14,7 +14,7 @@ instructors' repository. You shouldn't hit a merge conflict here, but if you do,
 - gain understanding linking files in different folders together with relative paths
 - gain more practice rendering views with Handlebars, including forms
 
-<details><summary>**CRUD & RESTful RECAP**</summary>
+<details><summary>CRUD & RESTful RECAP</summary>
 
 CRUD stands for Create, Read, Update, and Destroy-- these are the fundamental actions we perform on data.
 
@@ -65,7 +65,7 @@ The app will also be able to store new pirate entries. Clicking on "New Pirate" 
   - `controllers`:  you will code your routes in `controllers/pirates.js`
 
   <details><summary>Folder Structure Breakdown of our App</summary>
-  ![image](images/pirates_folder_breakdown.png)
+  <img src="images/pirates_folder_breakdown.png">
   </details>
 
 ### Part 1: Set up Express server
@@ -75,10 +75,10 @@ The app will also be able to store new pirate entries. Clicking on "New Pirate" 
 
 ### Part 2: Set up Controllers with Express Router
 
-###server.js
+### server.js
 - Before creating routes, we have to hook up our controllers to our server. Previously, we were writing our routes directly in `server.js`. Instead, we will use [express routers](https://expressjs.com/en/guide/routing.html), which creates a route handler module. In `server.js`, we can add it at the end of middlewares, before the listener like this:
 
-```
+```js
 //controllers for `/pirates` resource
 var pirateController = require('./controllers/pirates.js');
 app.use("/pirates", pirateController);
@@ -90,7 +90,7 @@ This tells our server that our controller files for `/pirates` live in the `./co
 
 In `controllers/pirates.js`, set up your requirements as follows. The basic structure of this file will be:
 
-```
+```js
 //requirements
 var express = require("express");
 var router = express.Router();
@@ -127,7 +127,7 @@ Notice we aren't using `app.get`, `app.post` like we would directly on the serve
 
 	- Once you have required body-parser, this is the code to get it to work:
 
-	```
+	```js
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(bodyParser.json());
 	```
@@ -137,7 +137,7 @@ Notice we aren't using `app.get`, `app.post` like we would directly on the serve
 <details><summary>.. Stuck?</summary>
 - Because we are using Express routers, check your syntax for routers (ex: `router.get()` versus `app.get()`):
 
-```
+```js
 //what would normally be:
 app.get("/", function(req, res){
     data: exampleData
@@ -175,16 +175,16 @@ You can use Postman or cURL to send data to a server. Send data with Postman or 
 
 - `index.hbs` should just be an unordered list of the Pirate's names. Each name should link to the `show` page for that Pirate. There should be a link to `add a new Pirate`.
 
-  <details><summary>Example output:</summary> ![image](images/index_route.png)</details>
+  <details><summary>Example output:</summary> <img src="images/index_route.png"></details>
 
 - `show.hbs` should display the Pirate's name, birthplace, death_year, base, and nickname. There should be a link to return to the Pirates index.
 
-<details><summary>Example output:</summary> ![image](images/show_route.png)
+<details><summary>Example output:</summary> <img src="images/show_route.png" />
 </details>
 
 - `new.hbs` should render a form where the user can enter a new Pirate's name, birthplace, death_year, base, and nickname.. The form will submit to the `create` route.
 
-<details><summary>Example output:</summary> ![image](images/new_route.png)
+<details><summary>Example output:</summary> <img src="images/new_route.png">
 </details>
 
 ### Reach Goals
@@ -197,11 +197,4 @@ You can use Postman or cURL to send data to a server. Send data with Postman or 
   When you're ready to submit your work,
 
   1.  Add, commit, and push your code to your fork of the class repo.
-  2.  File an issue on the class repo titled "Your Name -- wXXdXX".
-
-  The issue should include:
-
-  -   A link that points back to your fork.
-
-  -   A 'comfort' score on how you feel about the material, from 1 (very
-      uncomfortable) to 5 (very comfortable)
+  2.  Post a link to your pirates app on Schoology.

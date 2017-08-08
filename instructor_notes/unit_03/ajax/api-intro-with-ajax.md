@@ -62,7 +62,11 @@ Sometimes that's all we need. All this information, from all these browsers and 
 
 All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is **structured data** (i.e., arrays and hashes). Thus, native data structures can be **serialized** into a string representation of the data. This string can be transmitted and then parsed back into data by another web agent.  
 
+<<<<<<< HEAD
 There are **two** major serialized data formats...  
+=======
+There are **two** major serialized data formats...
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 
 #### JSON
 
@@ -114,7 +118,14 @@ APIs are published everywhere. Chances are good that most major content sources 
 
 **That sounds hard. Can't you just give me a freebie?**
 
+<<<<<<< HEAD
 Try the [Programmable Web API Directory](http://www.programmableweb.com/apis/directory) or the [Public APIs Directory](http://www.publicapis.com/).
+=======
+Try the [Programmable Web API Directory](http://www.programmableweb.com/apis/directory), [Mashape](https://market.mashape.com/explore) or the [Public APIs Directory](http://www.publicapis.com/).
+
+## You do
+Spend 10 minutes exploring these APIs and post some of the interesting data sets to the classroom channel in Slack.
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 
 ## What Is An API Key? (5 minutes / 0:25)
 
@@ -163,8 +174,11 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 Let's build a very simple app that posts a movie title and poster after searching for it. We'll do this using the [OMDB API](http://www.omdbapi.com/).
 
+<<<<<<< HEAD
 **[OMDB movie search](https://github.com/ga-wdi-exercises/omdb-api)**
 
+=======
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 The starter code is linked above. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
 Let's go ahead and add in the AJAX request. There are many ways to write an AJAX request, but we will be using a library called `axios` during this class.  Axios is a Promise-based HTTP client that takes advantage of many new JavaScript features and uses JavaScript's built in Promise API.  Let's see it in action now.
@@ -172,7 +186,11 @@ Let's go ahead and add in the AJAX request. There are many ways to write an AJAX
 ```js
 // Get value from search input field.
 const keyword = document.getElementById("#keyword").value;
+<<<<<<< HEAD
 const url = `https://www.omdbapi.com/?t=${keyword}`;
+=======
+const url = `https://www.omdbapi.com/?t=${keyword}&apikey=d31f1a94`;
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 axios.get(url).then(response => {
   console.log(response);
 });
@@ -200,7 +218,11 @@ After making an API call, we need to let our program know what to do with the da
 `.then()` is called whenever the previous method returns information.  In the case of AJAX calls, this typically means that `.then()` will be called once the information has been requested, processed, and sent back to our program.  We use `.then()` to tell our program what to do with this JSON data.   
 
 ```js
+<<<<<<< HEAD
 axios.get(url).then(function(response){
+=======
+axios.get(url).then(response => {
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
   var data = response.data
   document.window.append(data);
 });
@@ -224,6 +246,11 @@ A promise method for when the AJAX call fails.  These failures can occur for a v
 });
 ```
 
+<<<<<<< HEAD
+=======
+### BREAK
+
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 ## Making API Calls in a React Application.
 
 Through the use of AJAX and axios, we allow our React app to communicate with servers to retrieve and insert information.  Since we are using AJAX, we can update our database and get information back from the server without ever having to refresh the browser.  Let's build an application that communicates both with the Giphy API and with an Express API deployed on Heroku.
@@ -274,10 +301,17 @@ class SavedGifs extends Component{
 
 export default SavedGifs;
 
+<<<<<<< HEAD
 // ./components/App.js
 // Remember to import your new component in App.js
 import React, {Component} from "react";
 import SavedGifs from './SavedGifs';
+=======
+// ./App.js
+// Remember to import your new component in App.js
+import React, {Component} from "react";
+import SavedGifs from './components/SavedGifs';
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 
 class App extends Component {
   render() {
@@ -492,8 +526,12 @@ Since you will all be modifying the same API, **please only update gifs that you
 - How do we go about interacting with the response of an AJAX call?
 
 ## Hungry For More?
+<<<<<<< HEAD
 
 [Take a look at the prompts in this week's lab.](https://github.com/ga-wdi-exercises/fun_with_apis#need-an-app-idea)
+=======
+[Take a look at some API exercises used in other GA campuses](https://github.com/ga-wdi-exercises/fun_with_apis#need-an-app-idea)
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 
 ## Resources
 
@@ -501,4 +539,8 @@ Since you will all be modifying the same API, **please only update gifs that you
 * [Postman](https://www.getpostman.com/)
 * [Intro to APIs](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
 * [Practice with APIs](https://github.com/ga-dc/weather_teller)
+<<<<<<< HEAD
 * [Beautify your JSON in Chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)
+=======
+* [Beautify your JSON in Chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09

@@ -1,5 +1,6 @@
 console.log('tamagotchi file is loaded');
 
+<<<<<<< HEAD
 //your constructor function here
 const Tamagotchi = function(name, creatureType) {
 	this.name = name;
@@ -42,6 +43,10 @@ const Tamagotchi = function(name, creatureType) {
 		clearInterval(this.sickTimer);
 	};
 };
+=======
+//your class declaration here
+
+>>>>>>> 7d01367d3021dfc03a3f3ecec687fbbde4a12e09
 
 //create new Tamagotchis
 var gizmo = new Tamagotchi("Gizmo", "Mametchi");
