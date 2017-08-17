@@ -17,7 +17,7 @@
 
 ## Intro   (10/10)
 
-Ruby is a server-side scripting language written on top of C.
+Ruby is a server-side, Object Oriented, scripting language written on top of C.
 
 It was written by Yukihiro "Matz" Matsumoto, in 1995, who now works as the lead Ruby architect at Heroku.
 
@@ -562,7 +562,7 @@ A Ruby hash is an unordered, dictionary-like collection organized by key-value p
 
 ```ruby
 wdi_class = {
-  teacher: "Jamie",  
+  teacher: "John",  
   students: ["Yacko", "Wacko", "Dot"],  
   classroom: 2,  
   in_session: true,  
