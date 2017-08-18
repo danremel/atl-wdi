@@ -6,3 +6,5 @@ SELECT name, head_coach FROM teams WHERE division = 'North' OR division = 'East'
 
 SELECT * FROM players AVG (salary);
 SELECT name, position FROM players WHERE salary >= 10000000;
+
+SELECT * FROM nobel
