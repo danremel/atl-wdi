@@ -34,17 +34,11 @@ GROUP BY game.id, game.mdate ORDER BY game.id;
 FROM game JOIN goal ON goal.matchid = game.id
 WHERE goal.teamid = 'GER'
 GROUP BY game.id, game.mdate; 
-13. SELECT game.mdate, 
-       game.team1, 
-       SUM(CASE WHEN goal.teamid = game.team1
-           THEN 1
-           ELSE 0
-           END) AS score1,
-       game.team2,
-       SUM(CASE WHEN goal.teamid = game.team2
-           THEN 1
-           ELSE 0
-           END) AS score2
-FROM game JOIN goal ON (game.id = goal.matchid)
-GROUP BY game.id
-ORDER BY game.mdate, goal.matchid;
+13. SELECT mdate, 
+	   team1, 
+	   SUM(CASE WHEN teamid = team1 THEN 1 ELSE 0 END) AS score1, 
+	   team2, 
+	   SUM(CASE WHEN teamid = team2 THEN 1 ELSE 0 END) AS score2 FROM
+	game LEFT JOIN goal ON (id = matchid)
+	GROUP BY id, mdate, team1, team2
+	ORDER BY mdate, matchid, team1, team2
