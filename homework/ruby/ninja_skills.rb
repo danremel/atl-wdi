@@ -35,3 +35,15 @@
 # activity = gets.chomp.downcase
 # puts "I am #{name} and I like to go #{activity}"
 
+## Arrays
+myFirstArray = []
+myFirstArray = ["Apple", "Banana", "Mango", "Orange", "Kiwi", 1, 2, 3, 4]
+puts myFirstArray.last
+puts myFirstArray.first
+myFirstArray.insert(1, "Joe")
+
+myFirstArray.insert(2, 3)
+
+myFirstArray << "true"
+puts myFirstArray
+puts myFirstArray[3].class
