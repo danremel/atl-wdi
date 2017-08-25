@@ -19,6 +19,9 @@ people = [
     )
 ]
 
+people.map(&:capitalize)
+upper_case_full_names << people
+
 upper_case_full_names = []
 
 

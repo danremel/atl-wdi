@@ -18,6 +18,8 @@ users = [
     }
 ]
 
+
+
 first_user = ???
 
 # 2. Find the first customer's account balance
