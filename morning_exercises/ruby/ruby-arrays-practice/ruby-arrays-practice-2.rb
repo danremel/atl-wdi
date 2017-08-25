@@ -116,7 +116,7 @@ customers = [
 
 sorted_customers = ???
 
-# 6. Return all decorations with  in their description
+# 6. Return all decorations with blue in their description
 
 decorations = [
     {
