@@ -1,0 +1,15 @@
+body {
+
+}
+.footer-logo {
+    width: 15%;
+    height: auto;
+}
+.header-logo {
+    width: 25%;
+    height: auto;
+}
+.property-offer-columns-container {
+    display: flex;
+    flex-direction: row;
+}
