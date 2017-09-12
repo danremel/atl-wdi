@@ -59,6 +59,8 @@ This sets up our Ruby on Rails API and generates our file structure.  At this po
   }
 }
 ```
+> WARNING!!! Be sure to replace "YOUR PROJECT NAME" above with your real project name.
+
 > This package.json will be used to build the create-react-app and serve the static build file in production.  This is similar to the postinstall script we used when dealing with express in the past.
 
 > Some magic is happening here.  Since we tell Heroku to install the build in the public folder, Heroku will open the index.html page that is in public when we hit the index route for our app
@@ -83,7 +85,7 @@ This sets up our Ruby on Rails API and generates our file structure.  At this po
 6. After installing `foreman`, create a file titled `Procfile.dev` and paste the following code.
 ```
 web: cd client && PORT=3000 npm start
-api: PORT=3001 && bundle exec rails s
+api: rails s -p 3001
 ```
 
 7. You are now able to use `foreman` and the `Procfile.dev` to set up your development environment.  
@@ -214,13 +216,32 @@ localhost:3001/api/artists
 If we go back into Postman, we can now validate that our JSON API is working as intended.
 
 **COMMIT**
-**DEPLOY**
 
 ### YOU DO (20 mins)
 Now that we've created an Artist controller, create a Songs controller with all 5 RESTful routes.  Remember to check out `rails routes` to determent your route params.
 
 **COMMIT**
 **DEPLOY**
+
+## Deploying to Heroku for the first time.
+Now that we have a working API, let's get up and running on Heroku.
+1. Run `heroku create YOUR_APP_NAME` to generate a new Heroku app.
+
+> WARNING!!! Be sure to replace "YOUR_APP_NAME" above with the project name from your `package.json`.
+
+2. Define custom buildpacks for Heroku. This will tell your application that we need both Ruby and Node in order to get our application to work.
+```
+heroku buildpacks:add --index 1 heroku/ruby
+heroku buildpacks:add --index 2 heroku/nodejs
+```
+3. Create a file at your root level called `Procfile` and add the following line of code.  This will tell Heroku the command necessary to run your application.
+```
+web: rails s
+```
+4. Push your Heroku app using `git push heroku master`
+5. Migrate and seed your DB using `heroku run rails db:migrate db:seed`
+
+> If you receive an error along the lines of DB not existing, run the following command and try your migrations again. <br/> `heroku addons:create heroku-postgresql:hobby-dev`
 
 ## Front End: React
 
@@ -467,7 +488,7 @@ In order to get started with Devise Token Auth, we will first need to install th
 ```ruby
   gem 'devise'
   gem 'omniauth'
-  gem 'devise-token-auth'
+  gem 'devise_token_auth'
 ```
 
 As always, we run a `bundle install` to install the dependencies.
@@ -480,6 +501,14 @@ rails g devise_token_auth:install User auth
 ```
 
 After we run this command, you will notice several new additions to the app. We now have a User model, new routes corresponding to `/auth`, and a migration.  This should look pretty similar to how we have set up Devise in the past. 
+
+Before running a migration, lets configure some of the settings for `devise_token_auth`.  By default, this library will reset it's tokens on every request that is made.  While this is very secure, it also will introduce a lot of headaches for us.  Let's turn off this feature for now. We can switch this off by going into `./config/initializers/devise_token_auth.rb` and change it to this.
+
+```ruby
+DeviseTokenAuth.setup do |config|
+  config.change_headers_on_each_request = false
+end
+```
 
 Run `rails db:migrate`. After we migrate, we should have the basic auth set up for our back end rails server.
 
@@ -624,13 +653,13 @@ export default SignUpLogIn;
 
  ```jsx
  const GlobalNav = () => (
-    <Nav>
+    <nav>
       <h1>Tunr</h1>
-      <Links>
+      <div>
         <Link to="/">Artists</Link>
         <Link to="/signUp">Sign Up</Link>
-      </Links>
-    </Nav>
+      </div>
+    </nav>
  )
 ```
 
@@ -703,7 +732,7 @@ We now should be able to see the Artist and Songs page! Hooray!! So let's close 
 
 It doesn't! Boo!!
 
-There is one final step that we need to take before the Auth setup is complete.  We need to create another util function that will check for our Auth headers when the React app first opens and set's them up if they exist.  Also, we need to have some code that will change our `access-token` header whenever the server changes it. 
+There is one final step that we need to take before the Auth setup is complete.  We need to create another util function that will check for our Auth headers when the React app first opens and set's them up if they exist. 
 
 ```js
 export function setAxiosDefaults(){
@@ -711,13 +740,6 @@ export function setAxiosDefaults(){
   axios.defaults.headers.client = localStorage.getItem("client"); 
   axios.defaults.headers.uid = localStorage.getItem("uid"); 
   axios.defaults.headers.expiry = localStorage.getItem("expiry"); 
-  axios.interceptors.response.use((res) => {
-    if (res.headers['access-token']){
-      localStorage.setItem("access-token", res.headers['access-token'])
-      axios.defaults.headers['access-token'] = res.headers['access-token']; 
-    }
-    return res
-  });
 }
 ```
 
